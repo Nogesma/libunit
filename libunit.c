@@ -13,7 +13,9 @@
 #include "libunit.h"
 #include <libft.h>
 #include <sys/wait.h>
-#include <stdio.h>
+
+void	print_total(int ok, int len);
+void	print_result(int ret);
 
 void	load_test(t_unit_test *tests, char *description, int (*fn)(void))
 {
@@ -21,6 +23,8 @@ void	load_test(t_unit_test *tests, char *description, int (*fn)(void))
 	t_list	*new;
 
 	t = malloc(sizeof(t_test));
+	if (t == NULL)
+		return ;
 	t->description = description;
 	t->fn = fn;
 	new = ft_lstnew(t);
@@ -29,7 +33,7 @@ void	load_test(t_unit_test *tests, char *description, int (*fn)(void))
 	ft_lstadd_back(&tests->tests, new);
 }
 
-int	test(char* name, t_test *t)
+int	test(char *name, t_test *t)
 {
 	pid_t	child;
 	int		ret;
@@ -47,49 +51,14 @@ int	test(char* name, t_test *t)
 		exit(ret);
 	}
 	wait(&ret);
+	print_result(ret);
 	if (WIFSIGNALED(ret))
-	{
-		if (WTERMSIG(ret) == SIGSEGV)
-			ft_putendl_fd(": [SIGSEGV]", 1);
-		else if (WTERMSIG(ret) == SIGBUS)
-			ft_putendl_fd(": [BUS]", 1);
-		else if (WTERMSIG(ret) == SIGABRT)
-			ft_putendl_fd(": [SIGABRT]", 1);
-		else if (WTERMSIG(ret) == SIGFPE)
-			ft_putendl_fd(": [SIGFPE]", 1);
-		else if (WTERMSIG(ret) == SIGPIPE)
-			ft_putendl_fd(": [SIGPIPE]", 1);
-		else if (WTERMSIG(ret) == SIGILL)
-			ft_putendl_fd(": [SIGILL]", 1);
-		else
-			ft_putendl_fd(" : [ERR]", 1);
-		return (1);
-	}
-	else {
-		if (WEXITSTATUS(ret) != 0)
-			ft_putendl_fd(": [KO]", 1);
-		else
-			ft_putendl_fd(": [OK]", 1);
-	}
+		return (-1);
 	return (WEXITSTATUS(ret));
 }
 
-void	print_result(int ok, int len)
+void	init_test(t_unit_test *tests, char *name)
 {
-	char	*ok_str;
-	char	*len_str;
-
-	ok_str = ft_itoa(ok);
-	len_str = ft_itoa(len);
-	ft_putendl_fd("", 1);
-	ft_putstr_fd(ok_str, 1);
-	ft_putstr_fd("/", 1);
-	ft_putstr_fd(len_str, 1);
-	ft_putendl_fd(" tests checked", 1);
-}
-
-
-void	init_test(t_unit_test *tests, char *name) {
 	tests->name = name;
 	tests->tests = NULL;
 }
@@ -113,7 +82,7 @@ int	launch_tests(t_unit_test *tests)
 			ok++;
 		lst = lst->next;
 	}
-	print_result(ok, len);
+	print_total(ok, len);
 	if (ok != len)
 		return (-1);
 	return (0);

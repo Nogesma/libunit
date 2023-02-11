@@ -11,13 +11,10 @@
 /* ************************************************************************** */
 
 #include <libft.h>
-#include <stdio.h>
 
-int	sigbus_test(void)
+int	sigsegv_test(void)
 {
-	char	*s;
-
-	s = "string";
-	*s = 'a';
-	return (0);
+	if (ft_strlen(NULL) == 0)
+		return (0);
+	return (-1);
 }

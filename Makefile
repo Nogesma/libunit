@@ -12,7 +12,7 @@
 
 CFLAGS = -Wall -Wextra -Werror -no-pie
 CC     = gcc $(CFLAGS)
-OBJ    = libunit.o
+OBJ    = libunit.o utils.o
 LIB    = libft/libft.a
 NAME   = libunit.a
 TEST   = test
