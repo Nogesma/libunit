@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_null_test.c                                     :+:      :+:    :+:   */
+/*   02_ko_test.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msegrans <msegrans@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: ivautrav <ivautrav@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:51:40 by msegrans          #+#    #+#             */
-/*   Updated: 2023/02/11 16:51:42 by msegrans         ###   ########.fr       */
+/*   Updated: 2023/02/11 19:52:05 by ivautrav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int	ko_test(void)
+int	isalpha_ko_test(void)
 {
-	if (ft_strlen("ko") == 0)
+	if (ft_isalpha('*') == 0)
 		return (0);
 	return (-1);
 }

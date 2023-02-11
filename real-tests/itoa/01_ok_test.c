@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_null_test.c                                     :+:      :+:    :+:   */
+/*   01_ok_test.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msegrans <msegrans@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: ivautrav <ivautrav@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 16:51:40 by msegrans          #+#    #+#             */
-/*   Updated: 2023/02/11 16:51:42 by msegrans         ###   ########.fr       */
+/*   Created: 2023/02/11 17:27:16 by msegrans          #+#    #+#             */
+/*   Updated: 2023/02/11 19:11:29 by ivautrav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int	sigsegv_test(void)
+int	itoa_ok_test(void)
 {
-	if (ft_strlen(NULL) == 0)
+	if (ft_strncmp(ft_itoa(42), "42", 3) == 0)
 		return (0);
 	return (-1);
 }

@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   02_ko_test.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivautrav <ivautrav@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 16:45:57 by msegrans          #+#    #+#             */
-/*   Updated: 2023/02/11 19:49:56 by ivautrav         ###   ########.fr       */
+/*   Created: 2023/02/11 16:51:40 by msegrans          #+#    #+#             */
+/*   Updated: 2023/02/11 19:51:28 by ivautrav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	atoi_launcher(void);
-int	itoa_launcher(void);
-int	isalpha_launcher(void);
+#include <libft.h>
 
-int	main(void)
+int	itoa_ko_test(void)
 {
-	int	ret;
-
-	ret = 0;
-	ret |= atoi_launcher();
-	ret |= itoa_launcher();
-	ret |= isalpha_launcher();
-	return (ret);
+	if (ft_strncmp(ft_itoa(42), "42", 3) == 0)
+		return (0);
+	return (-1);
 }

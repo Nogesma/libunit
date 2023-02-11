@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_null_test.c                                     :+:      :+:    :+:   */
+/*   01_ok_test.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msegrans <msegrans@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: ivautrav <ivautrav@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 16:51:40 by msegrans          #+#    #+#             */
-/*   Updated: 2023/02/11 16:51:42 by msegrans         ###   ########.fr       */
+/*   Created: 2023/02/11 17:27:16 by msegrans          #+#    #+#             */
+/*   Updated: 2023/02/11 19:52:19 by ivautrav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
-#include <stdio.h>
 
-int	sigbus_test(void)
+int	ok_test(void)
 {
-	char	*s;
-
-	s = "string";
-	*s = 'a';
-	return (0);
+	if (ft_atoi("42") == 42)
+		return (0);
+	return (-1);
 }

@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   01_ok_test.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivautrav <ivautrav@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 16:45:57 by msegrans          #+#    #+#             */
-/*   Updated: 2023/02/11 19:49:56 by ivautrav         ###   ########.fr       */
+/*   Created: 2023/02/11 17:27:16 by msegrans          #+#    #+#             */
+/*   Updated: 2023/02/11 19:19:40 by ivautrav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	atoi_launcher(void);
-int	itoa_launcher(void);
-int	isalpha_launcher(void);
+#include <libft.h>
 
-int	main(void)
+int	isalpha_ok_test(void)
 {
-	int	ret;
-
-	ret = 0;
-	ret |= atoi_launcher();
-	ret |= itoa_launcher();
-	ret |= isalpha_launcher();
-	return (ret);
+	if (ft_isalpha('A'))
+		return (0);
+	return (-1);
 }

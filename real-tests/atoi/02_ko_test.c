@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_basic_test.c                                    :+:      :+:    :+:   */
+/*   02_ko_test.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msegrans <msegrans@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: ivautrav <ivautrav@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 17:27:16 by msegrans          #+#    #+#             */
-/*   Updated: 2023/02/11 17:27:17 by msegrans         ###   ########.fr       */
+/*   Created: 2023/02/11 16:51:40 by msegrans          #+#    #+#             */
+/*   Updated: 2023/02/11 19:52:26 by ivautrav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int	ok_test(void)
+int	ko_test(void)
 {
-	if (ft_strlen("Hello 42!") == 9)
+	if (ft_atoi("100") == 100)
 		return (0);
 	return (-1);
 }
