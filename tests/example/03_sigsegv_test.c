@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libunit.h                                          :+:      :+:    :+:   */
+/*   02_null_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msegrans <msegrans@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 14:55:23 by msegrans          #+#    #+#             */
-/*   Updated: 2023/02/11 14:55:27 by msegrans         ###   ########.fr       */
+/*   Created: 2023/02/11 16:51:40 by msegrans          #+#    #+#             */
+/*   Updated: 2023/02/11 16:51:42 by msegrans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBUNIT_H
-# define LIBUNIT_H
+#include <libft.h>
 
-# include <libft.h>
-
-typedef struct s_unit_test {
-	char	*name;
-	t_list	*tests;
-}	t_unit_test;
-
-typedef struct s_test {
-	char	*description;
-	int		(*fn)(void);
-}	t_test;
-
-void	init_test(t_unit_test *tests, char *name);
-
-void	load_test(t_unit_test *tests, char *description, int (*fn)(void));
-
-int		launch_tests(t_unit_test *tests);
-
-#endif //LIBUNIT_H
+int	sigsegv_test(void)
+{
+	if (ft_strlen(NULL) == 0)
+		return (0);
+	return (-1);
+}

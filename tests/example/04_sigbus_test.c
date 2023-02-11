@@ -10,11 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <unistd.h>
+#include <libft.h>
+#include <stdio.h>
 
-int	null_test(void)
+int sigbus_test(void)
 {
-	kill(getpid(), SIGBUS);
+	char *s;
+
+	s = "string";
+	*s = 'a';
 	return (0);
 }

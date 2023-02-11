@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -no-pie
 CC     = gcc $(CFLAGS)
 OBJ    = libunit.o
 LIB    = libft/libft.a

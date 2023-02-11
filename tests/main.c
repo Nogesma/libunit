@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	strlen_launcher(void);
+int	example_launcher(void);
 
 int	main(void)
 {
-	strlen_launcher();
+	example_launcher();
 }

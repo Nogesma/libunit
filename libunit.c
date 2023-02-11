@@ -15,10 +15,10 @@
 #include <sys/wait.h>
 #include <stdio.h>
 
-void	load_test(t_unit_test **tests, char *description, int (*fn)(void))
+void	load_test(t_unit_test *tests, char *description, int (*fn)(void))
 {
-	t_test		*t;
-	t_unit_test	*new;
+	t_test	*t;
+	t_list	*new;
 
 	t = malloc(sizeof(t_test));
 	t->description = description;
@@ -26,21 +26,23 @@ void	load_test(t_unit_test **tests, char *description, int (*fn)(void))
 	new = ft_lstnew(t);
 	if (!new)
 		return ;
-	ft_lstadd_front(tests, new);
+	ft_lstadd_back(&tests->tests, new);
 }
 
-int	test(t_test *t)
+int	test(char* name, t_test *t)
 {
 	pid_t	child;
 	int		ret;
 
-	ft_putstr_fd("[]: ", 1);
+	ft_putstr_fd(name, 1);
+	ft_putstr_fd(": ", 1);
 	ft_putstr_fd(t->description, 1);
 	child = fork();
 	if (child == -1)
 		return (child);
 	if (child == 0)
 	{
+		close(1);
 		ret = t->fn();
 		exit(ret);
 	}
@@ -63,8 +65,12 @@ int	test(t_test *t)
 			ft_putendl_fd(" : [ERR]", 1);
 		return (1);
 	}
-	else
-		ft_putendl_fd(": [OK]", 1);
+	else {
+		if (WEXITSTATUS(ret) != 0)
+			ft_putendl_fd(": [KO]", 1);
+		else
+			ft_putendl_fd(": [OK]", 1);
+	}
 	return (WEXITSTATUS(ret));
 }
 
@@ -82,25 +88,33 @@ void	print_result(int ok, int len)
 	ft_putendl_fd(" tests checked", 1);
 }
 
-int	launch_tests(t_unit_test **tests)
+
+void	init_test(t_unit_test *tests, char *name) {
+	tests->name = name;
+	tests->tests = NULL;
+}
+
+int	launch_tests(t_unit_test *tests)
 {
 	t_list	*lst;
 	int		ret;
 	int		ok;
 	int		len;
 
-	lst = *tests;
+	lst = tests->tests;
 	ret = 0;
 	ok = 0;
 	len = 0;
 	while (lst)
 	{
 		len++;
-		ret = test(lst->content);
+		ret = test(tests->name, lst->content);
 		if (ret == 0)
 			ok++;
 		lst = lst->next;
 	}
 	print_result(ok, len);
-	return (ok != len);
+	if (ok != len)
+		return (-1);
+	return (0);
 }

@@ -12,14 +12,21 @@
 
 #include <libunit.h>
 
-int	basic_test(void);
-int	null_test(void);
+int	ok_test(void);
+int	ko_test(void);
+int	sigsegv_test(void);
+int	sigbus_test(void);
 
-int	strlen_launcher(void)
+#define NAME "STRLEN"
+
+int	example_launcher(void)
 {
-	t_unit_test	*testlist;
+	t_unit_test	testlist;
 
-	load_test(&testlist, "Basic test", &basic_test);
-	load_test(&testlist, "NULL test", &null_test);
+	init_test(&testlist, "EXAMPLE");
+	load_test(&testlist, "OK test", &ok_test);
+	load_test(&testlist, "KO test", &ko_test);
+	load_test(&testlist, "SIGSEGV test", &sigsegv_test);
+	load_test(&testlist, "SIGBUS test", &sigbus_test);
 	return (launch_tests(&testlist));
 }
