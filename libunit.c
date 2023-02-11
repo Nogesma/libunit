@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libunit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msegrans <msegrans@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: ivautrav <ivautrav@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:02:32 by msegrans          #+#    #+#             */
-/*   Updated: 2023/02/11 15:02:33 by msegrans         ###   ########.fr       */
+/*   Updated: 2023/02/11 18:35:58 by ivautrav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,14 @@ int	test(t_test *t)
 			ft_putendl_fd(": [SIGSEGV]", 1);
 		else if (WTERMSIG(ret) == SIGBUS)
 			ft_putendl_fd(": [BUS]", 1);
+		else if (WTERMSIG(ret) == SIGABRT)
+			ft_putendl_fd(": [SIGABRT]", 1);
+		else if (WTERMSIG(ret) == SIGFPE)
+			ft_putendl_fd(": [SIGFPE]", 1);
+		else if (WTERMSIG(ret) == SIGPIPE)
+			ft_putendl_fd(": [SIGPIPE]", 1);
+		else if (WTERMSIG(ret) == SIGILL)
+			ft_putendl_fd(": [SIGILL]", 1);
 		else
 			ft_putendl_fd(" : [ERR]", 1);
 		return (1);

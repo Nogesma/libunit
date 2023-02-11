@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: msegrans <msegrans@student.42lausan>       +#+  +:+       +#+         #
+#    By: ivautrav <ivautrav@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 12:07:41 by msegrans          #+#    #+#              #
-#    Updated: 2021/10/12 12:07:45 by msegrans         ###   ########.fr        #
+#    Updated: 2023/02/11 17:21:12 by ivautrav         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ $(BUILD_DIR)/%.c.o: %.c
 	@$(CC) -c  $(CFLAGS) $(INC_FLAGS) $< -o $@
 
 .c.o:
-	@$(CC) -Ilibft -Llibft -lft -c $< -o $@
+	@$(CC) -Ilibft -c $< -o $@
 
 $(NAME): $(LIB) $(OBJ)
 	@$(AR) qcs $(NAME) libft/*.o $(OBJ)
