@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_ko_test.c                                       :+:      :+:    :+:   */
+/*   07_invalid_char_test.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivautrav <ivautrav@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 16:51:40 by msegrans          #+#    #+#             */
-/*   Updated: 2023/02/11 19:52:05 by ivautrav         ###   ########.fr       */
+/*   Created: 2023/02/11 17:27:16 by msegrans          #+#    #+#             */
+/*   Updated: 2023/02/11 20:11:22 by ivautrav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int	isalpha_ko_test(void)
+int	invalid_char_test(void)
 {
-	if (ft_isalpha('*') == 0)
+	if (ft_atoi("aaa b c 42a") == 42)
 		return (0);
 	return (-1);
 }

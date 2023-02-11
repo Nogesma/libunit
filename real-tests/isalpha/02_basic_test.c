@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_ko_test.c                                       :+:      :+:    :+:   */
+/*   02_basic_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivautrav <ivautrav@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:51:40 by msegrans          #+#    #+#             */
-/*   Updated: 2023/02/11 19:51:28 by ivautrav         ###   ########.fr       */
+/*   Updated: 2023/02/11 20:14:35 by ivautrav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int	itoa_ko_test(void)
+int	isalpha_basic_test(void)
 {
-	if (ft_strncmp(ft_itoa(42), "42", 3) == 0)
+	if (ft_isalpha('*') == 0)
 		return (0);
 	return (-1);
 }

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_ok_test.c                                       :+:      :+:    :+:   */
+/*   04_whitespace_test.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivautrav <ivautrav@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:27:16 by msegrans          #+#    #+#             */
-/*   Updated: 2023/02/11 20:13:01 by ivautrav         ###   ########.fr       */
+/*   Updated: 2023/02/11 20:08:38 by ivautrav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int	itoa_ok_test(void)
+int	whitespace_test(void)
 {
-	if (ft_strncmp(ft_itoa(42), "42", 3) == 0)
+	if (ft_atoi("   \t\t\t  42") == 42)
 		return (0);
 	return (-1);
 }
