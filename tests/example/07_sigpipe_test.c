@@ -10,11 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	sigbus_test(void)
-{
-	char	*s;
+#include <unistd.h>
 
-	s = "string";
-	*s = 'a';
+int	sigpipe_test(void)
+{
+	int	fd[2];
+
+	pipe(fd);
+	close(fd[0]);
+	write(fd[1], "Hello world!", 13);
 	return (0);
 }

@@ -10,11 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	sigbus_test(void)
+int	sigill_test(void)
 {
-	char	*s;
-
-	s = "string";
-	*s = 'a';
+	asm("ud2");
 	return (0);
 }

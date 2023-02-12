@@ -10,11 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	sigbus_test(void)
-{
-	char	*s;
+#include <stdlib.h>
 
-	s = "string";
-	*s = 'a';
-	return (0);
+int	sigabort_test(void)
+{
+	abort();
 }

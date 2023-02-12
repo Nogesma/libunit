@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	sigbus_test(void)
+int	sigfpe_test(void)
 {
-	char	*s;
-
-	s = "string";
-	*s = 'a';
-	return (0);
+	return (42 / 0);
 }

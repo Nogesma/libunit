@@ -13,7 +13,7 @@
 SHELL = /bin/sh
 
 CC ?= gcc
-CFLAGS += -Wall -Wextra -Werror
+CFLAGS += -Wall -Wextra
 
 INC_FLAGS :=
 LDFLAGS := -lunit -L..

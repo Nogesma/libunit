@@ -16,6 +16,10 @@ int	ok_test(void);
 int	ko_test(void);
 int	sigsegv_test(void);
 int	sigbus_test(void);
+int	sigabort_test(void);
+int	sigfpe_test(void);
+int	sigpipe_test(void);
+int	sigill_test(void);
 
 #define NAME "STRLEN"
 
@@ -28,5 +32,9 @@ int	example_launcher(void)
 	load_test(&testlist, "KO test", &ko_test);
 	load_test(&testlist, "SIGSEGV test", &sigsegv_test);
 	load_test(&testlist, "SIGBUS test", &sigbus_test);
+	load_test(&testlist, "SIGABRT test", &sigabort_test);
+	load_test(&testlist, "SIGFPE test", &sigfpe_test);
+	load_test(&testlist, "SIGPIPE test", &sigpipe_test);
+	load_test(&testlist, "SIGILL test", &sigill_test);
 	return (launch_tests(&testlist));
 }
