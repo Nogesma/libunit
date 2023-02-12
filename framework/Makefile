@@ -19,7 +19,7 @@ INC_FLAGS :=
 LDFLAGS :=
 
 NAME   ?= libunit.a
-LIBFT    = libft/libft.o
+LIBFT    = ../libft/libft.o
 
 BUILD_DIR ?= ./build
 SRC_DIRS ?= ./src
@@ -29,7 +29,7 @@ SRCS := $(shell find $(SRC_DIRS) -name '*.c')
 OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
 
 INC_DIRS := $(shell find $(INCLUDE_DIR) -type d)
-INC_DIRS += libft
+INC_DIRS += ../libft
 INC_FLAGS += $(addprefix -I,$(INC_DIRS))
 
 $(BUILD_DIR)/%.c.o: %.c
@@ -46,16 +46,16 @@ all: $(NAME)
 
 
 $(LIBFT):
-	@$(MAKE) -C libft bonus
+	@$(MAKE) -C ../libft bonus
 
 clean:
 	@rm -rf $(BUILD_DIR)
-	@$(MAKE) -C libft clean
+	@$(MAKE) -C ../libft clean
 	@echo Clean done
 
 fclean: clean
 	@$(RM) $(NAME)
-	@$(MAKE) -C libft fclean
+	@$(MAKE) -C ../libft fclean
 
 re: fclean all
 

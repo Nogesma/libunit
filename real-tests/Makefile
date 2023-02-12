@@ -16,7 +16,7 @@ CC ?= gcc
 CFLAGS += -Wall -Wextra -Werror
 
 INC_FLAGS :=
-LDFLAGS := -lunit -L..
+LDFLAGS := -lunit -L../framework
 
 NAME   ?= test_exec
 
@@ -26,11 +26,11 @@ SRC_DIRS ?= .
 SRCS := $(shell find $(SRC_DIRS) -name '*.c')
 OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
 
-INC_DIRS := ../includes
+INC_DIRS := ../framework/includes
 INC_DIRS += ../libft
 INC_FLAGS += $(addprefix -I,$(INC_DIRS))
 
-LIB = ../libunit.a
+LIB = ../framework/libunit.a
 
 test: $(NAME)
 	@./$(NAME)
@@ -45,7 +45,7 @@ $(NAME): $(LIB) $(OBJS)
 	@$(CC) $(CFLAGS) $(INC_FLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
 
 $(LIB):
-	@$(MAKE) -C ..
+	@$(MAKE) -C ../framework
 
 clean:
 	@rm -rf $(BUILD_DIR)
