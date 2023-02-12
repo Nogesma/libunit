@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_ok_test.c                                       :+:      :+:    :+:   */
+/*   09_one_test.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ivautrav <ivautrav@student.42.fr>          +#+  +:+       +#+        */
+/*   By: msegrans <msegrans@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 17:27:16 by msegrans          #+#    #+#             */
-/*   Updated: 2023/02/11 19:19:40 by ivautrav         ###   ########.fr       */
+/*   Created: 2023/02/12 15:28:54 by msegrans          #+#    #+#             */
+/*   Updated: 2023/02/12 15:28:56 by msegrans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int	isalpha_ok_test(void)
+int	atoi_one_test(void)
 {
-	if (ft_isalpha('A'))
+	if (ft_atoi("1") == 1)
 		return (0);
 	return (-1);
 }

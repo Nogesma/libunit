@@ -12,25 +12,31 @@
 
 #include <libunit.h>
 
-int	ok_test(void);
-int	basic_test(void);
-int	sign_test(void);
-int	whitespace_test(void);
-int	maxint_test(void);
-int	minint_test(void);
-int	invalid_char_test(void);
+int	atoi_basic_test(void);
+int	atoi_negative_test(void);
+int	atoi_sign_test(void);
+int	atoi_whitespace_test(void);
+int	atoi_maxint_test(void);
+int	atoi_minint_test(void);
+int	atoi_invalid_char_test(void);
+int	atoi_zero_test(void);
+int	atoi_one_test(void);
+int	atoi_minus_one_test(void);
 
 int	atoi_launcher(void)
 {
 	t_unit_test	testlist;
 
 	init_test(&testlist, "ATOI");
-	load_test(&testlist, "OK test", &ok_test);
-	load_test(&testlist, "Basic test", &basic_test);
-	load_test(&testlist, "Sign test", &sign_test);
-	load_test(&testlist, "Whitespace test", &whitespace_test);
-	load_test(&testlist, "Max Int test", &maxint_test);
-	load_test(&testlist, "Min Int test", &minint_test);
-	load_test(&testlist, "Invalid char test", &invalid_char_test);
+	load_test(&testlist, "Simple", &atoi_basic_test);
+	load_test(&testlist, "Negative", &atoi_negative_test);
+	load_test(&testlist, "Positive", &atoi_sign_test);
+	load_test(&testlist, "Whitespace", &atoi_whitespace_test);
+	load_test(&testlist, "Max Int", &atoi_maxint_test);
+	load_test(&testlist, "Min Int", &atoi_minint_test);
+	load_test(&testlist, "Invalid char", &atoi_invalid_char_test);
+	load_test(&testlist, "Zero", &atoi_zero_test);
+	load_test(&testlist, "One", &atoi_one_test);
+	load_test(&testlist, "Minus one", &atoi_minus_one_test);
 	return (launch_tests(&testlist));
 }

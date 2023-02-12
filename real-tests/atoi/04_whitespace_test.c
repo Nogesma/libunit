@@ -12,7 +12,7 @@
 
 #include <libft.h>
 
-int	whitespace_test(void)
+int	atoi_whitespace_test(void)
 {
 	if (ft_atoi("   \t\t\t  42") == 42)
 		return (0);

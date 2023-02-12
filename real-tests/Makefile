@@ -16,21 +16,23 @@ CC ?= gcc
 CFLAGS += -Wall -Wextra -Werror
 
 INC_FLAGS :=
-LDFLAGS :=
+LDFLAGS := -lunit -L..
 
-NAME   ?= libunit.a
-LIBFT    = libft/libft.o
+NAME   ?= real_tests
 
 BUILD_DIR ?= ./build
-SRC_DIRS ?= ./src
-INCLUDE_DIR ?= ./includes
+SRC_DIRS ?= .
 
 SRCS := $(shell find $(SRC_DIRS) -name '*.c')
 OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
 
-INC_DIRS := $(shell find $(INCLUDE_DIR) -type d)
-INC_DIRS += libft
+INC_DIRS := ../includes
+INC_DIRS += ../libft
 INC_FLAGS += $(addprefix -I,$(INC_DIRS))
+
+
+all: $(NAME)
+	@./$(NAME)
 
 $(BUILD_DIR)/%.c.o: %.c
 	@echo Compiling $@
@@ -39,38 +41,16 @@ $(BUILD_DIR)/%.c.o: %.c
 
 $(NAME): $(LIBFT) $(OBJS)
 	@echo Linking $@
-	@$(CC) -r -nostdlib $(CFLAGS) $(OBJS) -o $(BUILD_DIR)/libunit.o
-	@$(AR) qcs $(NAME) $(LIBFT) $(BUILD_DIR)/libunit.o
+	@$(CC) $(CFLAGS) $(INC_FLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
 
-all: $(NAME)
-
-
-$(LIBFT):
-	@$(MAKE) -C libft bonus
 
 clean:
 	@rm -rf $(BUILD_DIR)
-	@$(MAKE) -C libft clean
 	@echo Clean done
 
 fclean: clean
 	@$(RM) $(NAME)
-	@$(MAKE) -C libft fclean
 
 re: fclean all
 
-
-TEST_DIRS ?= ./tests
-TEST_SRCS := $(shell find $(TEST_DIRS) -name '*.c')
-TEST_OBJS := $(TEST_SRCS:%=$(BUILD_DIR)/%.o)
-TEST_NAME := example_tests
-
-$(TEST_NAME): $(NAME) $(TEST_OBJS)
-	@echo Linking $@
-	@$(CC) $(CFLAGS) $(INC_FLAGS) $(TEST_OBJS) $(NAME) -o $(TEST_NAME)
-
-tests: $(TEST_NAME)
-	@./$(TEST_NAME)
-
-
-.PHONY: all clean fclean re tests
+.PHONY: all clean fclean re

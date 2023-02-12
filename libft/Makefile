@@ -24,22 +24,24 @@ BONUS  = ft_lstadd_back.o ft_lstadd_front.o ft_lstclear.o ft_lstdelone.o \
 NAME   = libft.a
 
 .c.o:
-	$(CC) -c $< -o $@
+	@$(CC) -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(AR) rcs $(NAME) $(OBJ)
+	@$(CC) -r -nostdlib $(OBJ) -o libft.o
+	@$(AR) rcs $(NAME) libft.o
 
 all: $(NAME)
 
 clean:
-	$(RM) $(OBJ) $(BONUS)
+	@$(RM) $(OBJ) $(BONUS)
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME) libft.o
 
 re: fclean all
 
 bonus: $(OBJ) $(BONUS)
-	$(AR) rcs $(NAME) $(OBJ) $(BONUS)
+	@$(CC) -r -nostdlib $(OBJ) $(BONUS) -o libft.o
+	@$(AR) rcs $(NAME) libft.o
 
 .PHONY: all clean fclean re bonus

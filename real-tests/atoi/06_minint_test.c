@@ -12,7 +12,7 @@
 
 #include <libft.h>
 
-int	minint_test(void)
+int	atoi_minint_test(void)
 {
 	if (ft_atoi("-2147483648") == -2147483648)
 		return (0);

@@ -20,7 +20,6 @@ void	print_total(int ok, int len)
 
 	ok_str = ft_itoa(ok);
 	len_str = ft_itoa(len);
-	ft_putendl_fd("", 1);
 	ft_putstr_fd(ok_str, 1);
 	ft_putstr_fd("/", 1);
 	ft_putstr_fd(len_str, 1);

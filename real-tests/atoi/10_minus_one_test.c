@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_sign_test.c                                     :+:      :+:    :+:   */
+/*   10_minus_one_test.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ivautrav <ivautrav@student.42.fr>          +#+  +:+       +#+        */
+/*   By: msegrans <msegrans@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 17:27:16 by msegrans          #+#    #+#             */
-/*   Updated: 2023/02/11 20:05:45 by ivautrav         ###   ########.fr       */
+/*   Created: 2023/02/12 15:29:02 by msegrans          #+#    #+#             */
+/*   Updated: 2023/02/12 15:29:03 by msegrans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int	atoi_sign_test(void)
+int	atoi_minus_one_test(void)
 {
-	if (ft_atoi("+42") == 42)
+	if (ft_atoi("-1") == -1)
 		return (0);
 	return (-1);
 }

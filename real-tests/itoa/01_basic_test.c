@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_launcher.c                                      :+:      :+:    :+:   */
+/*   01_ok_test.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivautrav <ivautrav@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 16:46:08 by msegrans          #+#    #+#             */
-/*   Updated: 2023/02/11 20:14:53 by ivautrav         ###   ########.fr       */
+/*   Created: 2023/02/11 17:27:16 by msegrans          #+#    #+#             */
+/*   Updated: 2023/02/11 20:13:01 by ivautrav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libunit.h>
+#include <libft.h>
 
-int	alpha_test(void);
-int	not_alpha_test(void);
-
-int	isalpha_launcher(void)
+int	itoa_basic_test(void)
 {
-	t_unit_test	testlist;
-
-	init_test(&testlist, "ISALPHA");
-	load_test(&testlist, "alpha", &alpha_test);
-	load_test(&testlist, "not alpha", &not_alpha_test);
-	return (launch_tests(&testlist));
+	if (ft_strncmp(ft_itoa(42), "42", 3) == 0)
+		return (0);
+	return (-1);
 }

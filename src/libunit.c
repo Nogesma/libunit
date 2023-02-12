@@ -38,9 +38,6 @@ int	test(char *name, t_test *t)
 	pid_t	child;
 	int		ret;
 
-	ft_putstr_fd(name, 1);
-	ft_putstr_fd(": ", 1);
-	ft_putstr_fd(t->description, 1);
 	child = fork();
 	if (child == -1)
 		return (child);
@@ -51,6 +48,9 @@ int	test(char *name, t_test *t)
 		exit(ret);
 	}
 	wait(&ret);
+	ft_putstr_fd(name, 1);
+	ft_putstr_fd(": ", 1);
+	ft_putstr_fd(t->description, 1);
 	print_result(ret);
 	if (WIFSIGNALED(ret))
 		return (-1);

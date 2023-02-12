@@ -12,7 +12,7 @@
 
 #include <libft.h>
 
-int	maxint_test(void)
+int	atoi_maxint_test(void)
 {
 	if (ft_atoi("2147483647") == 2147483647)
 		return (0);

@@ -12,9 +12,9 @@
 
 #include <libft.h>
 
-int	invalid_char_test(void)
+int	atoi_invalid_char_test(void)
 {
-	if (ft_atoi("aaa b c 42a") == 42)
+	if (ft_atoi("42aaa12 b c 56a") == 42)
 		return (0);
 	return (-1);
 }

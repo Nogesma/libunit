@@ -6,15 +6,15 @@
 /*   By: ivautrav <ivautrav@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:51:40 by msegrans          #+#    #+#             */
-/*   Updated: 2023/02/11 20:15:07 by ivautrav         ###   ########.fr       */
+/*   Updated: 2023/02/11 20:13:55 by ivautrav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int	itoa_basic_test(void)
+int	atoi_negative_test(void)
 {
-	if (ft_strncmp(ft_itoa(42), "42", 3) == 0)
+	if (ft_atoi("-42") == -42)
 		return (0);
 	return (-1);
 }
