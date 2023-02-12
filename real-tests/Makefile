@@ -32,7 +32,7 @@ INC_FLAGS += $(addprefix -I,$(INC_DIRS))
 
 LIB = ../libunit.a
 
-test: $(LIB) $(NAME)
+test: $(NAME)
 	@./$(NAME)
 
 $(BUILD_DIR)/%.c.o: %.c
@@ -40,7 +40,7 @@ $(BUILD_DIR)/%.c.o: %.c
 	@mkdir -p $(dir $@)
 	@$(CC) -c  $(CFLAGS) $(INC_FLAGS) $< -o $@
 
-$(NAME): $(LIBFT) $(OBJS)
+$(NAME): $(LIB) $(OBJS)
 	@echo Linking $@
 	@$(CC) $(CFLAGS) $(INC_FLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
 

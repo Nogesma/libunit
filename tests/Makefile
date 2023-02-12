@@ -40,7 +40,7 @@ $(BUILD_DIR)/%.c.o: %.c
 	@mkdir -p $(dir $@)
 	@$(CC) -c  $(CFLAGS) $(INC_FLAGS) $< -o $@
 
-$(NAME): $(LIBFT) $(OBJS)
+$(NAME): $(LIB) $(OBJS)
 	@echo Linking $@
 	@$(CC) $(CFLAGS) $(INC_FLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
 

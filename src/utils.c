@@ -13,6 +13,11 @@
 #include <sys/wait.h>
 #include "libunit.h"
 
+#define RESET "\033[0m"
+#define BOLD "\033[1m"
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+
 void	print_total(int ok, int len)
 {
 	char	*ok_str;
@@ -20,36 +25,51 @@ void	print_total(int ok, int len)
 
 	ok_str = ft_itoa(ok);
 	len_str = ft_itoa(len);
+	ft_putstr_fd(BOLD, 1);
 	ft_putstr_fd(ok_str, 1);
 	ft_putstr_fd("/", 1);
 	ft_putstr_fd(len_str, 1);
-	ft_putendl_fd(" tests checked", 1);
+	ft_putstr_fd(" tests checked", 1);
+	ft_putendl_fd(RESET, 1);
+}
+
+void	print_green(char *str)
+{
+	ft_putstr_fd(GREEN, 1);
+	ft_putstr_fd(str, 1);
+	ft_putstr_fd(RESET, 1);
+}
+
+void	print_red(char *str)
+{
+	ft_putstr_fd(RED, 1);
+	ft_putstr_fd(str, 1);
+	ft_putstr_fd(RESET, 1);
 }
 
 void	print_result(int ret)
 {
+	ft_putstr_fd(": [", 1);
 	if (WIFSIGNALED(ret))
 	{
 		if (WTERMSIG(ret) == SIGSEGV)
-			ft_putendl_fd(": [SIGSEGV]", 1);
+			print_red("SIGSEGV");
 		else if (WTERMSIG(ret) == SIGBUS)
-			ft_putendl_fd(": [BUS]", 1);
+			print_red("BUS");
 		else if (WTERMSIG(ret) == SIGABRT)
-			ft_putendl_fd(": [SIGABRT]", 1);
+			print_red("SIGABRT");
 		else if (WTERMSIG(ret) == SIGFPE)
-			ft_putendl_fd(": [SIGFPE]", 1);
+			print_red("SIGFPE");
 		else if (WTERMSIG(ret) == SIGPIPE)
-			ft_putendl_fd(": [SIGPIPE]", 1);
+			print_red("SIGPIPE");
 		else if (WTERMSIG(ret) == SIGILL)
-			ft_putendl_fd(": [SIGILL]", 1);
+			print_red("SIGILL");
 		else
-			ft_putendl_fd(" : [ERR]", 1);
+			print_red("ERR");
 	}
+	else if (WEXITSTATUS(ret) != 0)
+		print_red("KO");
 	else
-	{
-		if (WEXITSTATUS(ret) != 0)
-			ft_putendl_fd(": [KO]", 1);
-		else
-			ft_putendl_fd(": [OK]", 1);
-	}
+		print_green("OK");
+	ft_putendl_fd("]", 1);
 }
