@@ -176,4 +176,5 @@ Temporary Items
 
 example_tests
 real_tests
+test_exec
 .vscode/

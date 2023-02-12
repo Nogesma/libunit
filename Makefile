@@ -59,18 +59,4 @@ fclean: clean
 
 re: fclean all
 
-
-TEST_DIRS ?= ./tests
-TEST_SRCS := $(shell find $(TEST_DIRS) -name '*.c')
-TEST_OBJS := $(TEST_SRCS:%=$(BUILD_DIR)/%.o)
-TEST_NAME := example_tests
-
-$(TEST_NAME): $(NAME) $(TEST_OBJS)
-	@echo Linking $@
-	@$(CC) $(CFLAGS) $(INC_FLAGS) $(TEST_OBJS) $(NAME) -o $(TEST_NAME)
-
-tests: $(TEST_NAME)
-	@./$(TEST_NAME)
-
-
-.PHONY: all clean fclean re tests
+.PHONY: all clean fclean re
